@@ -21,7 +21,7 @@ To install all dependencies with Anaconda run using the following commands.
 
 ## Training (e.g. DMC walker-walk)
 ```bash
-python main.py --algo dreamer --env walker-walk --action-repeat 2 --id name-of-experiement
+python TransD_20x20_1e7.py --algo dreamer --env walker-walk --action-repeat 2 --id name-of-experiement
 ```
 
 For best performance with DeepMind Control Suite, try setting environment variable `MUJOCO_GL=egl` (see instructions and details [here](https://github.com/deepmind/dm_control#rendering)).

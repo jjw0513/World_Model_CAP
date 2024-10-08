@@ -56,6 +56,7 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Evaluate for Transdreamer')
   parser.add_argument('--wandb-project', type=str, default='3ball_CAP', help='WandB project name')
   parser.add_argument('--wandb-entity', type=str, default='hails', help='WandB entity name')
+  parser.add_argument('--run-name', type=str, default='TransD_20x20_1e7', help='WandB run name')
   args = parser.parse_args()
   task, cfg = get_config()
 
