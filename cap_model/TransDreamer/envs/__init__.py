@@ -8,7 +8,8 @@ from .atari_env import Atari
 from .crafter import Crafter
 from .tools import count_episodes, save_episodes, video_summary
 #from .minigrid_env import GymGridEnv, OneHotAction, TimeLimit, Collect, RewardObs
-from .minigrid_wrapper import GymGridEnv, OneHotAction, TimeLimit, Collect, RewardObs
+# from .minigrid_wrapper import GymGridEnv, OneHotAction, TimeLimit, Collect, RewardObs
+from .minigrid_wrapper import GymGridEnv, OneHotAction, Collect, RewardObs
 import pathlib
 import pdb
 import json
@@ -80,7 +81,7 @@ def make_env(cfg, writer, prefix, datadir, store, seed=0):
 
   elif suite == 'minigrid' :
     env = GymGridEnv(task,cfg.env.action_repeat,cfg.env.max_steps)
-    env = OneHotAction(env)
+    env = OneHotAction(env, cfg.env.max_steps)
 
   else:
     raise NotImplementedError(suite)
@@ -92,8 +93,8 @@ def make_env(cfg, writer, prefix, datadir, store, seed=0):
     callbacks.append(lambda ep: tools.save_episodes(datadir, [ep]))
   callbacks.append(
       lambda ep: summarize_episode(ep, cfg, datadir, writer, prefix))
-  env = Collect(env, callbacks, cfg.env.precision)
-  env = RewardObs(env)
+  env = Collect(env, callbacks, cfg.env.precision,cfg.env.max_steps)
+  env = RewardObs(env, cfg.env.max_steps)
 
 
 
