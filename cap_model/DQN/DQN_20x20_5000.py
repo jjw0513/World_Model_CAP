@@ -24,7 +24,7 @@ parser.add_argument('--epsilon-decay', type=int, default=200, metavar='ED', help
 parser.add_argument('--replay-memory-size', type=int, default=10000, metavar='RMS', help='Replay memory size')
 parser.add_argument('--gamma', type=float, default=0.9, metavar='G', help='Discount factor')
 parser.add_argument('--target-update-iter', type=int, default=200, metavar='TUI', help='Target network update interval')
-parser.add_argument('--max-steps', type=int, default=2000, metavar='MS', help='Maximum number of steps per episode')
+parser.add_argument('--max-steps', type=int, default=5000, metavar='MS', help='Maximum number of steps per episode')
 parser.add_argument('--episodes', type=int, default=1000, metavar='E', help='Total number of episodes')
 parser.add_argument('--env', type=str, default='GymMoreRedBalls-v0', help='Gym environment')
 parser.add_argument('--disable-cuda', action='store_true', help='Disable CUDA')
